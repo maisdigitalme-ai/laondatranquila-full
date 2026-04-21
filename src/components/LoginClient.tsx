@@ -40,12 +40,12 @@ export default function LoginClient() {
   }
 
   return (
-    <div className="min-h-screen flex" style={{ background: '#0A0A0A' }}>
+    <div className="min-h-screen flex" style={{ background: '#1C2630' }}>
       {/* Left: Hero Image */}
       <div
         className="hidden md:flex md:w-1/2 relative items-center justify-center overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #0A0A0A 0%, #1a0505 50%, #0A0A0A 100%)',
+          background: 'linear-gradient(135deg, #1C2630 0%, #2A3139 50%, #1C2630 100%)',
         }}
       >
         {/* Background overlay */}
@@ -56,9 +56,8 @@ export default function LoginClient() {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: 0.5,
-          }}
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 60%, #0A0A0A 100%)' }} />
+                  <div
+              className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 60%, #1C2630 100%)' }} />
         <div className="relative z-10 text-center px-8">
           <div className="mb-6">
             <h1
@@ -69,7 +68,7 @@ export default function LoginClient() {
             </h1>
             <div
               className="text-sm font-semibold tracking-[0.3em] uppercase"
-              style={{ color: '#E63946' }}
+              style={{ color: '#99A178' }}
             >
               Domina el Placer Femenino
             </div>
@@ -88,7 +87,7 @@ export default function LoginClient() {
             >
               La Onda Tranquila
             </h1>
-            <p className="text-xs tracking-widest uppercase" style={{ color: '#E63946' }}>
+            <p className="text-xs tracking-widest uppercase" style={{ color: '#99A178' }}>
               Domina el Placer Femenino
             </p>
           </div>
@@ -97,9 +96,9 @@ export default function LoginClient() {
           <div className="hidden md:block text-center mb-8">
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-              style={{ background: 'rgba(230,57,70,0.15)', border: '1px solid rgba(230,57,70,0.3)' }}
+              style={{ background: 'rgba(153,161,120,0.15)', border: '1px solid rgba(153,161,120,0.3)' }}
             >
-              <span className="text-2xl" style={{ fontFamily: 'var(--font-playfair)', color: '#E63946', fontWeight: 700 }}>V</span>
+              <span className="text-2xl" style={{ fontFamily: 'var(--font-playfair)', color: '#99A178', fontWeight: 700 }}>OT</span>
             </div>
             <p className="text-sm" style={{ color: '#999' }}>Inicia sesión en tu cuenta</p>
           </div>
@@ -161,7 +160,7 @@ export default function LoginClient() {
             {error && (
               <div
                 className="text-sm px-4 py-3 rounded-lg"
-                style={{ background: 'rgba(230,57,70,0.1)', border: '1px solid rgba(230,57,70,0.3)', color: '#E63946' }}
+                style={{ background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178' }}
               >
                 {error}
               </div>
