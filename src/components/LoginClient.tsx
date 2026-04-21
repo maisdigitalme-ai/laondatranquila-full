@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SocialProofCompact } from './SocialProof';
+import Image from 'next/image';
 
 export default function LoginClient() {
   const router = useRouter();
@@ -40,160 +41,170 @@ export default function LoginClient() {
   }
 
   return (
-    <div className="min-h-screen flex" style={{ background: '#1C2630' }}>
-      {/* Left: Hero Image */}
+    <div className="min-h-screen flex flex-col" style={{ background: '#1C2630' }}>
+      {/* Hero Banner */}
       <div
-        className="hidden md:flex md:w-1/2 relative items-center justify-center overflow-hidden"
+        className="relative w-full h-64 md:h-80 overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #1C2630 0%, #2A3139 50%, #1C2630 100%)',
+          backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663569528159/JCTqQGJs24eXyavTAzvSY7/onda-tranquila-hero-banner-6YtjwXpofYRFbKco2fPMQS.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
-        {/* Background overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663514395106/RNwrdS82oyF4Jnnd33FcWg/hero-banner-dvtwkHSwhqvSHUEfotBVnb.webp')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.5,
-                  <div
-              className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 60%, #1C2630 100%)' }} />
-        <div className="relative z-10 text-center px-8">
-          <div className="mb-6">
+        {/* Overlay gradient */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(28,38,48,0.3), rgba(28,38,48,0.8))' }} />
+        
+        {/* Logo and Title */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <div className="mb-4">
             <h1
-              className="text-6xl font-bold mb-2"
-              style={{ fontFamily: 'var(--font-playfair)', color: 'white', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
+              className="text-5xl md:text-6xl font-bold mb-2"
+              style={{ fontFamily: 'var(--font-playfair)', color: 'white', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}
             >
               La Onda Tranquila
             </h1>
-            <div
-              className="text-sm font-semibold tracking-[0.3em] uppercase"
-              style={{ color: '#99A178' }}
-            >
-              Domina el Placer Femenino
-            </div>
+            <p className="text-sm md:text-base tracking-widest uppercase" style={{ color: '#E8D5C4' }}>
+              Calma, Paz y Bienestar para Niños
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Right: Login Form */}
-      <div className="w-full md:w-1/2 flex items-center justify-center px-6 py-12">
-        <div className="w-full max-w-sm">
-          {/* Logo mobile */}
-          <div className="md:hidden text-center mb-8">
-            <h1
-              className="text-4xl font-bold mb-1"
-              style={{ fontFamily: 'var(--font-playfair)', color: 'white' }}
-            >
-              La Onda Tranquila
-            </h1>
-            <p className="text-xs tracking-widest uppercase" style={{ color: '#99A178' }}>
-              Domina el Placer Femenino
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col md:flex-row">
+        {/* Left: Illustration */}
+        <div className="hidden md:flex md:w-1/2 items-center justify-center p-8" style={{ background: 'linear-gradient(135deg, #1C2630 0%, #2A3139 100%)' }}>
+          <div className="relative w-full max-w-md h-96">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663569528159/JCTqQGJs24eXyavTAzvSY7/onda-tranquila-child-calm-iyngHvy6zBLyoQQ728Q7FR.webp"
+              alt="Niño meditando"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Right: Login Form */}
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-6 py-12">
+          <div className="w-full max-w-sm">
+            {/* Form Header */}
+            <div className="text-center mb-8">
+              <h2
+                className="text-3xl font-bold mb-2"
+                style={{ fontFamily: 'var(--font-playfair)', color: 'white' }}
+              >
+                Inicia Sesión
+              </h2>
+              <p className="text-sm" style={{ color: '#999' }}>
+                Accede a tu área de membresía
+              </p>
+            </div>
+
+            {/* Login Form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Email Input */}
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{ color: '#E8D5C4' }}>
+                  Correo Electrónico
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="tu@email.com"
+                  className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2"
+                  style={{
+                    background: 'rgba(255,255,255,0.05)',
+                    border: '1px solid rgba(153,161,120,0.3)',
+                    focusRing: '2px solid rgba(153,161,120,0.5)',
+                  }}
+                  required
+                />
+              </div>
+
+              {/* Password Input */}
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{ color: '#E8D5C4' }}>
+                  Contraseña
+                </label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••"
+                    className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2"
+                    style={{
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(153,161,120,0.3)',
+                    }}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm"
+                    style={{ color: '#99A178' }}
+                  >
+                    {showPassword ? 'Ocultar' : 'Ver'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Error Message */}
+              {error && (
+                <div
+                  className="text-sm px-4 py-3 rounded-lg"
+                  style={{ background: 'rgba(230,100,100,0.1)', border: '1px solid rgba(230,100,100,0.3)', color: '#FF6B6B' }}
+                >
+                  {error}
+                </div>
+              )}
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:opacity-90 disabled:opacity-50"
+                style={{
+                  background: 'linear-gradient(135deg, #99A178 0%, #7A8A5E 100%)',
+                  cursor: loading ? 'not-allowed' : 'pointer',
+                }}
+              >
+                {loading ? 'Cargando...' : 'Acceder'}
+              </button>
+            </form>
+
+            {/* Divider */}
+            <div className="my-6 flex items-center">
+              <div className="flex-1" style={{ borderTop: '1px solid rgba(153,161,120,0.2)' }} />
+              <span className="px-3 text-xs" style={{ color: '#666' }}>O</span>
+              <div className="flex-1" style={{ borderTop: '1px solid rgba(153,161,120,0.2)' }} />
+            </div>
+
+            {/* Sign Up Link */}
+            <p className="text-center text-sm" style={{ color: '#999' }}>
+              ¿No tienes cuenta?{' '}
+              <a href="#" className="font-semibold hover:underline" style={{ color: '#99A178' }}>
+                Regístrate aquí
+              </a>
             </p>
           </div>
-
-          {/* Logo desktop */}
-          <div className="hidden md:block text-center mb-8">
-            <div
-              className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-              style={{ background: 'rgba(153,161,120,0.15)', border: '1px solid rgba(153,161,120,0.3)' }}
-            >
-              <span className="text-2xl" style={{ fontFamily: 'var(--font-playfair)', color: '#99A178', fontWeight: 700 }}>OT</span>
-            </div>
-            <p className="text-sm" style={{ color: '#999' }}>Inicia sesión en tu cuenta</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Email */}
-            <div>
-              <label className="block text-sm mb-2" style={{ color: '#CCCCCC', fontFamily: 'var(--font-inter)' }}>
-                Correo electrónico
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="tu@email.com"
-                required
-                className="input-dark"
-                style={{ fontSize: '16px' }}
-              />
-            </div>
-
-            {/* Password */}
-            <div>
-              <label className="block text-sm mb-2" style={{ color: '#CCCCCC', fontFamily: 'var(--font-inter)' }}>
-                Contraseña
-              </label>
-              <div className="relative">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  placeholder="••••••"
-                  required
-                  className="input-dark pr-12"
-                  style={{ fontSize: '16px' }}
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2"
-                  style={{ color: '#999', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}
-                >
-                  {showPassword ? (
-                    <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
-                      <line x1="1" y1="1" x2="23" y2="23"/>
-                    </svg>
-                  ) : (
-                    <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                      <circle cx="12" cy="12" r="3"/>
-                    </svg>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* Error */}
-            {error && (
-              <div
-                className="text-sm px-4 py-3 rounded-lg"
-                style={{ background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178' }}
-              >
-                {error}
-              </div>
-            )}
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="btn-red w-full py-3 text-base"
-              style={{ marginTop: '8px', opacity: loading ? 0.7 : 1 }}
-            >
-              {loading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin" width="16" height="16" fill="none" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" strokeOpacity="0.25"/>
-                    <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-                  </svg>
-                  Accediendo...
-                </span>
-              ) : 'Acceder'}
-            </button>
-          </form>
-
-          {/* Prova social */}
-          <div className="mt-6">
-            <SocialProofCompact />
-          </div>
-
-          <p className="text-center text-xs mt-4" style={{ color: '#555' }}>
-            Copyright © 2025 – La Onda Tranquila. Todos los derechos reservados.
-          </p>
         </div>
+      </div>
+
+      {/* Social Proof Section */}
+      <div className="w-full px-6 py-12" style={{ background: 'rgba(42,49,57,0.5)' }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-center text-lg font-semibold mb-8" style={{ color: '#E8D5C4' }}>
+            ✨ Padres que ya confían en La Onda Tranquila
+          </h3>
+          <SocialProofCompact />
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="w-full px-6 py-6 text-center text-xs" style={{ background: '#0F1419', color: '#666' }}>
+        <p>© 2025 La Onda Tranquila. Todos los derechos reservados.</p>
       </div>
     </div>
   );
