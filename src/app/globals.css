@@ -3,24 +3,27 @@
 @tailwind utilities;
 
 /* =============================================
-   CÓDIGO V — DARK CINEMA THEME
-   Design: Modern Dark Cinema
-   Primary: #E63946 (Vibrant Red)
-   Gold: #D4AF37
-   Background: #0A0A0A (Deep Black)
-   Surface: #1A1A1A (Dark Gray)
+   LA ONDA TRANQUILA — CALM NEUROACOUSTIC THEME
+   Design: Calming Dark Blue with Teal Accents
+   Primary: #99A178 (Teal/Green)
+   Accent: #FF8C42 (Coral/Orange)
+   Background: #1C2630 (Deep Blue)
+   Surface: #212630 (Dark Blue)
    ============================================= */
 
 :root {
-  --red: #E63946;
-  --gold: #D4AF37;
-  --bg: #0A0A0A;
-  --surface: #1A1A1A;
-  --surface2: #242424;
-  --border: #333333;
-  --text: #FFFFFF;
-  --text-muted: #999999;
+  --primary: #99A178;
+  --accent: #FF8C42;
+  --bg: #1C2630;
+  --surface: #212630;
+  --surface2: #2A3139;
+  --border: #3A4452;
+  --text: #E9E7E2;
+  --text-muted: #A39C8F;
   --success: #22C55E;
+  /* Legacy names for compatibility */
+  --red: #FF8C42;
+  --gold: #99A178;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +44,7 @@ h1, h2, h3, h4, h5 {
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--surface); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--red); }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -55,7 +58,7 @@ h1, h2, h3, h4, h5 {
 .animate-fade-in { animation: fadeIn 0.3s ease-out; }
 .animate-slide-in { animation: slideInRight 0.3s ease-out; }
 
-.gradient-red { background: linear-gradient(135deg, #E63946 0%, #C1121F 100%); }
+.gradient-red { background: linear-gradient(135deg, #99A178 0%, #7A8A5E 100%); }
 
 .glass {
   background: rgba(26, 26, 26, 0.85);
@@ -72,22 +75,22 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-red {
-  background: var(--red); color: white; border: none;
+  background: var(--primary); color: #1C2630; border: none;
   padding: 10px 20px; border-radius: 6px; font-weight: 600;
   cursor: pointer; transition: all 0.2s ease;
   font-family: var(--font-inter), sans-serif;
 }
 .btn-red:hover {
-  background: #c1121f; transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(230,57,70,0.4);
+  background: #7A8A5E; transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(153,161,120,0.4);
 }
 
 .lesson-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 8px; transition: all 0.2s ease; cursor: pointer;
 }
-.lesson-card:hover { border-color: var(--red); background: var(--surface2); }
-.lesson-card.active { border-color: var(--red); background: rgba(230,57,70,0.1); }
+.lesson-card:hover { border-color: var(--primary); background: var(--surface2); }
+.lesson-card.active { border-color: var(--primary); background: rgba(153,161,120,0.1); }
 
 .input-dark {
   background: var(--surface); border: 1px solid var(--border);
@@ -95,7 +98,7 @@ h1, h2, h3, h4, h5 {
   width: 100%; font-family: var(--font-inter), sans-serif;
   font-size: 14px; transition: border-color 0.2s; outline: none;
 }
-.input-dark:focus { border-color: var(--red); }
+.input-dark:focus { border-color: var(--primary); }
 .input-dark::placeholder { color: var(--text-muted); }
 
 .progress-bar { background: var(--border); border-radius: 4px; height: 4px; overflow: hidden; }
