@@ -76,7 +76,7 @@ export default function LoginClient() {
         <div className="hidden md:flex md:w-1/2 items-center justify-center p-8" style={{ background: 'linear-gradient(135deg, #1C2630 0%, #2A3139 100%)' }}>
           <div className="relative w-full max-w-md h-96">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663569528159/JCTqQGJs24eXyavTAzvSY7/onda-tranquila-child-calm-iyngHvy6zBLyoQQ728Q7FR.webp"
+              src="/manus-storage/pasted_file_tGTt8n_image_9c5f17db.png"
               alt="Niño meditando"
               className="w-full h-full object-contain"
             />
