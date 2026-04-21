@@ -22,31 +22,36 @@ export async function POST(request: Request) {
 
     const DEFAULT_PASSWORD = '123456';
 
-    // Se não existe, criar com status 'pending' — aguarda aprovação do admin
+    // Se não existe, criar com status 'approved' — acesso imediato
     if (users.length === 0) {
       const hashedPassword = await bcrypt.hash(DEFAULT_PASSWORD, 10);
       const nameFromEmail = normalizedEmail.split('@')[0];
 
       await sql`
         INSERT INTO users (name, email, password, is_admin, is_active, status)
-        VALUES (${nameFromEmail}, ${normalizedEmail}, ${hashedPassword}, false, false, 'pending')
+        VALUES (${nameFromEmail}, ${normalizedEmail}, ${hashedPassword}, false, true, 'approved')
         ON CONFLICT (email) DO NOTHING
       `;
 
-      return NextResponse.json(
-        { error: 'Tu solicitud de acceso fue recibida. Espera la aprobación del administrador para ingresar.' },
-        { status: 403 }
-      );
+      // Buscar o usuário recém-criado
+      users = await sql`
+        SELECT id, name, email, password, is_admin, is_active, status
+        FROM users
+        WHERE email = ${normalizedEmail}
+      `;
     }
 
     const user = users[0];
 
-    // Verificar se está pendente de aprovação
-    if (user.status === 'pending' || (!user.is_active && user.status !== 'approved')) {
-      return NextResponse.json(
-        { error: 'Tu acceso está pendiente de aprobación. El administrador te notificará cuando esté listo.' },
-        { status: 403 }
-      );
+    // Atualizar usuário se estiver pendente — aprova automaticamente
+    if (user.status === 'pending' || !user.is_active) {
+      await sql`
+        UPDATE users
+        SET is_active = true, status = 'approved'
+        WHERE id = ${user.id}
+      `;
+      user.is_active = true;
+      user.status = 'approved';
     }
 
     // Verificar se foi desativado pelo admin
