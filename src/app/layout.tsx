@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Código V — Domina el Placer Femenino',
+  title: 'La Onda Tranquila — Domina el Placer Femenino',
   description: 'El sistema más completo para dominar el placer femenino.',
 };
 

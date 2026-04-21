@@ -300,7 +300,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                 </div>
                 <div style={{ background: '#1A1A1A', border: '1px solid #2A2A2A', borderRadius: '12px', padding: '20px' }}>
                   <label style={{ display: 'block', fontSize: '13px', color: '#CCC', marginBottom: '8px', fontWeight: 600 }}>Título del Sitio</label>
-                  <input className="input-dark" value={siteTitle} onChange={e => setSiteTitle(e.target.value)} placeholder="Código V" />
+                  <input className="input-dark" value={siteTitle} onChange={e => setSiteTitle(e.target.value)} placeholder="La Onda Tranquila" />
                 </div>
                 <div className="flex items-center gap-3">
                   <button onClick={saveSettings} disabled={savingSettings} className="btn-red px-6 py-3" style={{ opacity: savingSettings ? 0.6 : 1 }}>

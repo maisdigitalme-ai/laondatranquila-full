@@ -77,7 +77,7 @@ export default function DashboardClient({
 
   const bannerUrl = settings.banner_url || '';
   const logoUrl = settings.logo_url || '';
-  const siteTitle = settings.site_title || 'Código V';
+  const siteTitle = settings.site_title || 'La Onda Tranquila';
 
   async function handleLogout() {
     await fetch('/api/auth/logout', { method: 'POST' });
@@ -270,7 +270,7 @@ export default function DashboardClient({
         <>
           <div className="max-w-7xl mx-auto px-4 pt-6 pb-2">
             <h2 style={{ color: 'white', fontSize: '16px', fontWeight: 600, fontFamily: 'var(--font-inter)' }}>
-              Código V
+              La Onda Tranquila
             </h2>
           </div>
 

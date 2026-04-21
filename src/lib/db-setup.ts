@@ -95,7 +95,7 @@ export async function setupDatabase() {
     )
   `;
 
-  // Seed: Módulos do Código V
+  // Seed: Módulos do La Onda Tranquila
   const existingModules = await sql`SELECT COUNT(*) as count FROM modules`;
   if (parseInt(existingModules[0].count) === 0) {
     await sql`
@@ -201,7 +201,7 @@ export async function setupDatabase() {
   if (parseInt(existingCourses[0].count) === 0) {
     await sql`
       INSERT INTO courses (title, description, position, slug, content_type) VALUES
-      ('Código V', 'Domina el Placer Femenino — El programa completo para transformar tu vida sexual.', 1, 'laondatranquila', 'video'),
+      ('La Onda Tranquila', 'Domina el Placer Femenino — El programa completo para transformar tu vida sexual.', 1, 'laondatranquila', 'video'),
       ('Secretos Sexuales que Todo Hombre Debe Saber', 'Los secretos mejor guardados sobre la sexualidad femenina revelados.', 2, 'secretos-sexuales', 'pdf')
     `;
   }

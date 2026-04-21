@@ -550,7 +550,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
             {logoUrl ? (
               <img src={logoUrl} alt="Logo" style={{ height: '28px', objectFit: 'contain' }} />
             ) : (
-              <span style={{ color: 'white', fontSize: '14px', fontWeight: 600 }}>Código V</span>
+              <span style={{ color: 'white', fontSize: '14px', fontWeight: 600 }}>La Onda Tranquila</span>
             )}
           </div>
           <div className="flex items-center gap-3">

@@ -65,7 +65,7 @@ export default function LoginClient() {
               className="text-6xl font-bold mb-2"
               style={{ fontFamily: 'var(--font-playfair)', color: 'white', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
             >
-              Código V
+              La Onda Tranquila
             </h1>
             <div
               className="text-sm font-semibold tracking-[0.3em] uppercase"
@@ -86,7 +86,7 @@ export default function LoginClient() {
               className="text-4xl font-bold mb-1"
               style={{ fontFamily: 'var(--font-playfair)', color: 'white' }}
             >
-              Código V
+              La Onda Tranquila
             </h1>
             <p className="text-xs tracking-widest uppercase" style={{ color: '#E63946' }}>
               Domina el Placer Femenino
@@ -192,7 +192,7 @@ export default function LoginClient() {
           </div>
 
           <p className="text-center text-xs mt-4" style={{ color: '#555' }}>
-            Copyright © 2025 – Código V. Todos los derechos reservados.
+            Copyright © 2025 – La Onda Tranquila. Todos los derechos reservados.
           </p>
         </div>
       </div>
