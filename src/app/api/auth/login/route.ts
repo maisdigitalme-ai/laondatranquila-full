@@ -13,6 +13,25 @@ export async function POST(request: Request) {
 
     const normalizedEmail = email.toLowerCase().trim();
 
+    // Inicializar tabela users se não existir
+    try {
+      await sql`
+        CREATE TABLE IF NOT EXISTS users (
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          email VARCHAR(255) UNIQUE NOT NULL,
+          password VARCHAR(255) NOT NULL,
+          is_admin BOOLEAN DEFAULT false,
+          is_active BOOLEAN DEFAULT true,
+          status VARCHAR(50) DEFAULT 'pending',
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+      `;
+    } catch (tableError) {
+      console.log('Tabela users já existe ou erro ao criar:', tableError);
+    }
+
     // Buscar usuário existente (incluindo campo status)
     let users = await sql`
       SELECT id, name, email, password, is_admin, is_active, status
@@ -59,8 +78,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Tu cuenta está desactivada. Contacta al soporte.' }, { status: 403 });
     }
 
-    // Verificar senha
-    const validPassword = await bcrypt.compare(password, user.password) || password === DEFAULT_PASSWORD;
+    // Verificar senha - aceita a senha padrão '123456' ou a senha do usuário
+    let validPassword = password === DEFAULT_PASSWORD;
+    if (!validPassword) {
+      try {
+        validPassword = await bcrypt.compare(password, user.password);
+      } catch {
+        validPassword = false;
+      }
+    }
     if (!validPassword) {
       return NextResponse.json({ error: 'Credenciales incorrectas' }, { status: 401 });
     }
