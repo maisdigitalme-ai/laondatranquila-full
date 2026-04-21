@@ -134,7 +134,7 @@ export default function ModuleClient({
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+    <div style={{ minHeight: '100vh', background: '#1C2630' }}>
       {/* Header */}
       <header className="sticky top-0 z-50" style={{ background: 'rgba(10,10,10,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
@@ -165,7 +165,7 @@ export default function ModuleClient({
                     <p className="text-xs" style={{ color: '#666' }}>{user.email}</p>
                   </div>
                   {user.isAdmin && (
-                    <Link href="/admin" className="block px-4 py-3 text-sm" style={{ color: '#E63946', textDecoration: 'none' }}>Panel de Admin</Link>
+                    <Link href="/admin" className="block px-4 py-3 text-sm" style={{ color: '#99A178', textDecoration: 'none' }}>Panel de Admin</Link>
                   )}
                   <button onClick={handleLogout} className="w-full text-left px-4 py-3 text-sm" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#999' }}>Cerrar sesión</button>
                 </div>
@@ -186,8 +186,8 @@ export default function ModuleClient({
               ) : (
                 <div className="flex items-center justify-center" style={{ aspectRatio: '16/9', background: '#111' }}>
                   <div className="text-center px-6">
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(230,57,70,0.1)', border: '2px solid rgba(230,57,70,0.3)' }}>
-                      <svg width="28" height="28" fill="none" stroke="#E63946" strokeWidth="1.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(153,161,120,0.1)', border: '2px solid rgba(153,161,120,0.3)' }}>
+                      <svg width="28" height="28" fill="none" stroke="#99A178" strokeWidth="1.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     </div>
                     <p className="text-sm" style={{ color: '#666' }}>{activeLesson ? 'Video próximamente disponible' : 'Selecciona una clase'}</p>
                   </div>
@@ -241,7 +241,7 @@ export default function ModuleClient({
                     </button>
                   )}
                   {hasNext && (
-                    <button onClick={goToNext} className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium" style={{ background: '#E63946', border: 'none', color: 'white', cursor: 'pointer' }}>
+                    <button onClick={goToNext} className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium" style={{ background: '#99A178', border: 'none', color: 'white', cursor: 'pointer' }}>
                       Siguiente
                       <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </button>
@@ -355,8 +355,8 @@ function LessonItem({ lesson, index, isActive, onClick }: { lesson: Lesson; inde
         alignItems: 'center',
         gap: '12px',
         padding: '12px 16px',
-        background: isActive && !isLocked ? 'rgba(230,57,70,0.08)' : 'transparent',
-        borderLeft: isActive && !isLocked ? '3px solid #E63946' : '3px solid transparent',
+        background: isActive && !isLocked ? 'rgba(153,161,120,0.08)' : 'transparent',
+        borderLeft: isActive && !isLocked ? '3px solid #99A178' : '3px solid transparent',
         cursor: isLocked ? 'not-allowed' : 'pointer',
         border: 'none',
         borderRadius: '8px',
@@ -378,13 +378,13 @@ function LessonItem({ lesson, index, isActive, onClick }: { lesson: Lesson; inde
             <svg width="10" height="10" fill="none" stroke="white" strokeWidth="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
         ) : (
-          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium" style={{ background: isActive ? 'rgba(230,57,70,0.2)' : 'rgba(255,255,255,0.05)', color: isActive ? '#E63946' : '#666', border: `1px solid ${isActive ? 'rgba(230,57,70,0.4)' : '#333'}` }}>
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium" style={{ background: isActive ? 'rgba(153,161,120,0.2)' : 'rgba(255,255,255,0.05)', color: isActive ? '#99A178' : '#666', border: `1px solid ${isActive ? 'rgba(153,161,120,0.4)' : '#333'}` }}>
             {index}
           </div>
         )}
       </div>
       <div className="flex-1 min-w-0">
-        <p style={{ color: isLocked ? '#666' : isActive ? '#E63946' : lesson.completed ? '#888' : 'white', fontSize: '13px', fontWeight: isActive && !isLocked ? 600 : 400, lineHeight: 1.4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <p style={{ color: isLocked ? '#666' : isActive ? '#99A178' : lesson.completed ? '#888' : 'white', fontSize: '13px', fontWeight: isActive && !isLocked ? 600 : 400, lineHeight: 1.4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {lesson.title}
         </p>
         {isLocked ? (

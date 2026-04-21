@@ -14,8 +14,8 @@ const PDF_SECTIONS = [
     title: 'Los 17 Mayores Excitantes Femeninos',
     subtitle: 'De todos los tiempos — los secretos que ella desea que descubras',
     icon: '💋',
-    color: '#E63946',
-    gradient: 'linear-gradient(135deg, #E63946, #FF6B6B)',
+    color: '#99A178',
+    gradient: 'linear-gradient(135deg, #99A178, #FF6B6B)',
     pages: [
       `${CDN}/ss1-1_9a9440d7.jpg`, `${CDN}/ss1-2_39b9408a.jpg`,
       `${CDN}/ss1-3_903cde82.jpg`, `${CDN}/ss1-4_0596cc81.jpg`,
@@ -338,12 +338,12 @@ function ScrollProgress() {
     }}>
       <div style={{
         height: '100%',
-        background: 'linear-gradient(90deg, #E63946, #FF8C00, #9333EA, #10B981)',
+        background: 'linear-gradient(90deg, #99A178, #FF8C00, #9333EA, #10B981)',
         backgroundSize: '300% 100%',
         animation: 'gradient-shift 3s ease infinite',
         width: `${progress}%`,
         transition: 'width 0.15s ease-out',
-        boxShadow: '0 0 10px rgba(230,57,70,0.5)',
+        boxShadow: '0 0 10px rgba(153,161,120,0.5)',
       }} />
     </div>
   );
@@ -365,10 +365,10 @@ function BackToTop() {
       style={{
         position: 'fixed', bottom: '24px', right: '24px', zIndex: 50,
         width: '50px', height: '50px', borderRadius: '14px',
-        background: 'linear-gradient(135deg, #E63946, #FF6B6B)',
+        background: 'linear-gradient(135deg, #99A178, #FF6B6B)',
         color: 'white', border: 'none',
         cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: '0 8px 30px rgba(230,57,70,0.4)',
+        boxShadow: '0 8px 30px rgba(153,161,120,0.4)',
         transition: 'all 0.3s ease',
         animation: 'fadeInUp 0.4s ease-out',
       }}
@@ -438,7 +438,7 @@ function PageCounter({ current, total }: { current: number; total: number }) {
     }}
     className="hidden-mobile"
     >
-      <svg width="14" height="14" fill="none" stroke="#E63946" strokeWidth="2" viewBox="0 0 24 24">
+      <svg width="14" height="14" fill="none" stroke="#99A178" strokeWidth="2" viewBox="0 0 24 24">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
       </svg>
@@ -512,7 +512,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+    <div style={{ minHeight: '100vh', background: '#1C2630' }}>
       <ScrollProgress />
       <BackToTop />
       <SectionNav activeIndex={activeSection} />
@@ -523,13 +523,13 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(230,57,70,0.1); } 50% { box-shadow: 0 0 50px rgba(230,57,70,0.25); } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(153,161,120,0.1); } 50% { box-shadow: 0 0 50px rgba(153,161,120,0.25); } }
         @keyframes pulse-dot { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.8); } }
         @keyframes pulse-ring { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
         @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
         @keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes text-glow { 0%, 100% { text-shadow: 0 0 20px rgba(230,57,70,0.3); } 50% { text-shadow: 0 0 40px rgba(230,57,70,0.5), 0 0 80px rgba(230,57,70,0.2); } }
-        @keyframes border-glow { 0%, 100% { border-color: rgba(230,57,70,0.2); } 50% { border-color: rgba(230,57,70,0.5); } }
+        @keyframes text-glow { 0%, 100% { text-shadow: 0 0 20px rgba(153,161,120,0.3); } 50% { text-shadow: 0 0 40px rgba(153,161,120,0.5), 0 0 80px rgba(153,161,120,0.2); } }
+        @keyframes border-glow { 0%, 100% { border-color: rgba(153,161,120,0.2); } 50% { border-color: rgba(153,161,120,0.5); } }
         @media (max-width: 768px) { .hidden-mobile { display: none !important; } }
       `}</style>
 
@@ -570,7 +570,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
                       <p className="text-xs" style={{ color: '#666' }}>{user.email}</p>
                     </div>
                     {user.isAdmin && (
-                      <Link href="/admin" className="block px-4 py-3 text-sm" style={{ color: '#E63946', textDecoration: 'none' }}>Panel de Admin</Link>
+                      <Link href="/admin" className="block px-4 py-3 text-sm" style={{ color: '#99A178', textDecoration: 'none' }}>Panel de Admin</Link>
                     )}
                     <button onClick={handleLogout} className="w-full text-left px-4 py-3 text-sm" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#999' }}>Cerrar sesión</button>
                   </div>
@@ -587,7 +587,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
         <div style={{
           position: 'absolute', top: '-80px', left: '30%', transform: 'translateX(-50%)',
           width: '500px', height: '350px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(230,57,70,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(153,161,120,0.08) 0%, transparent 70%)',
           filter: 'blur(60px)', pointerEvents: 'none',
         }} />
         <div style={{
@@ -604,13 +604,13 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(230,57,70,0.08)', border: '1px solid rgba(230,57,70,0.2)',
+            background: 'rgba(153,161,120,0.08)', border: '1px solid rgba(153,161,120,0.2)',
             borderRadius: '100px', padding: '6px 18px', marginBottom: '28px',
             animation: 'border-glow 3s ease-in-out infinite',
           }}>
             <span style={{ fontSize: '14px' }}>🔒</span>
             <span style={{
-              color: '#E63946', fontSize: '11px', fontWeight: 700,
+              color: '#99A178', fontSize: '11px', fontWeight: 700,
               letterSpacing: '0.14em', textTransform: 'uppercase',
               fontFamily: 'Inter, sans-serif',
             }}>
@@ -628,7 +628,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
           }}>
             Secretos{' '}
             <span style={{
-              background: 'linear-gradient(135deg, #E63946, #FF6B6B)',
+              background: 'linear-gradient(135deg, #99A178, #FF6B6B)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -653,7 +653,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
             marginBottom: '12px', flexWrap: 'wrap',
           }}>
             {[
-              { value: '4', label: 'Guías', color: '#E63946' },
+              { value: '4', label: 'Guías', color: '#99A178' },
               { value: String(TOTAL_PAGES), label: 'Páginas', color: '#FF8C00' },
               { value: '100+', label: 'Secretos', color: '#9333EA' },
             ].map((stat, i) => (
@@ -702,7 +702,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
             }}>
               <div style={{
                 width: '4px', height: '10px', borderRadius: '2px',
-                background: 'linear-gradient(to bottom, #E63946, #FF6B6B)',
+                background: 'linear-gradient(to bottom, #99A178, #FF6B6B)',
                 animation: 'fadeInUp 1.5s ease-in-out infinite',
               }} />
             </div>
@@ -741,18 +741,18 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
       }}>
         <div style={{
           width: '2px', height: '70px', margin: '0 auto 36px',
-          background: 'linear-gradient(to bottom, transparent, rgba(230,57,70,0.4), transparent)',
+          background: 'linear-gradient(to bottom, transparent, rgba(153,161,120,0.4), transparent)',
         }} />
 
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: '10px',
-          background: 'linear-gradient(135deg, rgba(230,57,70,0.12), rgba(147,51,234,0.08))',
-          border: '1px solid rgba(230,57,70,0.25)',
+          background: 'linear-gradient(135deg, rgba(153,161,120,0.12), rgba(147,51,234,0.08))',
+          border: '1px solid rgba(153,161,120,0.25)',
           borderRadius: '100px', padding: '10px 24px', marginBottom: '24px',
         }}>
           <span style={{ fontSize: '18px' }}>🏆</span>
           <span style={{
-            color: '#E63946', fontSize: '13px', fontWeight: 600,
+            color: '#99A178', fontSize: '13px', fontWeight: 600,
             fontFamily: 'Inter, sans-serif',
           }}>
             ¡Lectura completada!
@@ -767,7 +767,7 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
         }}>
           Ahora tienes el{' '}
           <span style={{
-            background: 'linear-gradient(135deg, #E63946, #9333EA)',
+            background: 'linear-gradient(135deg, #99A178, #9333EA)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -788,15 +788,15 @@ export default function ImmersiveSecretosModule({ user }: { user: User }) {
           href="/dashboard"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '10px',
-            background: 'linear-gradient(135deg, #E63946, #C62828)',
+            background: 'linear-gradient(135deg, #99A178, #C62828)',
             color: 'white', padding: '16px 36px',
             borderRadius: '14px', fontWeight: 600, fontSize: '15px',
             textDecoration: 'none', fontFamily: 'Inter, sans-serif',
-            boxShadow: '0 8px 30px rgba(230,57,70,0.3)',
+            boxShadow: '0 8px 30px rgba(153,161,120,0.3)',
             transition: 'all 0.3s ease',
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 14px 45px rgba(230,57,70,0.45)'; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(230,57,70,0.3)'; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 14px 45px rgba(153,161,120,0.45)'; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(153,161,120,0.3)'; }}
         >
           <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M19 12H5M12 19l-7-7 7-7"/>

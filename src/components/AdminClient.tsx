@@ -227,7 +227,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
   ];
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+    <div style={{ minHeight: '100vh', background: '#1C2630' }}>
       {/* Header */}
       <header className="sticky top-0 z-50" style={{ background: 'rgba(10,10,10,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="flex items-center justify-between px-4 py-3 max-w-5xl mx-auto">
@@ -237,7 +237,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
               <span className="hidden sm:inline">Dashboard</span>
             </Link>
             <span style={{ color: '#333' }}>/</span>
-            <span style={{ color: '#E63946', fontSize: '14px', fontWeight: 600 }}>Admin</span>
+            <span style={{ color: '#99A178', fontSize: '14px', fontWeight: 600 }}>Admin</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-sm hidden sm:block" style={{ color: '#666' }}>{userName}</span>
@@ -257,9 +257,9 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
               onClick={() => setTab(t.id)}
               className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all"
               style={{
-                background: tab === t.id ? 'rgba(230,57,70,0.1)' : 'transparent',
-                border: `1px solid ${tab === t.id ? 'rgba(230,57,70,0.3)' : 'transparent'}`,
-                color: tab === t.id ? '#E63946' : '#666',
+                background: tab === t.id ? 'rgba(153,161,120,0.1)' : 'transparent',
+                border: `1px solid ${tab === t.id ? 'rgba(153,161,120,0.3)' : 'transparent'}`,
+                color: tab === t.id ? '#99A178' : '#666',
                 cursor: 'pointer',
               }}
             >
@@ -271,7 +271,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
 
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#E63946', borderTopColor: 'transparent' }} />
+            <div className="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#99A178', borderTopColor: 'transparent' }} />
           </div>
         ) : (
           <>
@@ -334,11 +334,11 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                     }}>
                       <div className="flex items-center justify-between gap-3">
                         <div className="flex items-center gap-3 min-w-0">
-                          <AvatarIcon size={32} bgColor={u.is_admin ? '#E63946' : u.status === 'pending' ? '#7A5C00' : '#333'} iconColor="white" />
+                          <AvatarIcon size={32} bgColor={u.is_admin ? '#99A178' : u.status === 'pending' ? '#7A5C00' : '#333'} iconColor="white" />
                           <div className="min-w-0">
                             <div className="flex items-center gap-2">
                               <p className="text-sm font-medium truncate" style={{ color: 'white' }}>{u.name}</p>
-                              {u.is_admin && <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'rgba(230,57,70,0.15)', color: '#E63946', fontSize: '10px' }}>Admin</span>}
+                              {u.is_admin && <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'rgba(153,161,120,0.15)', color: '#99A178', fontSize: '10px' }}>Admin</span>}
                               {u.status === 'pending' && <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'rgba(245,158,11,0.15)', color: '#F59E0B', fontSize: '10px' }}>⏳ Pendiente</span>}
                             </div>
                             <p className="text-xs truncate" style={{ color: '#666' }}>{u.email}</p>
@@ -350,7 +350,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                               <button onClick={() => approveUser(u.id)} className="text-xs px-3 py-1 rounded font-medium" style={{ background: 'rgba(34,197,94,0.15)', border: '1px solid rgba(34,197,94,0.4)', color: '#22C55E', cursor: 'pointer' }}>
                                 ✓ Aprobar
                               </button>
-                              <button onClick={() => rejectUser(u.id)} className="text-xs px-2 py-1 rounded" style={{ background: 'transparent', border: '1px solid rgba(230,57,70,0.3)', color: '#E63946', cursor: 'pointer' }}>
+                              <button onClick={() => rejectUser(u.id)} className="text-xs px-2 py-1 rounded" style={{ background: 'transparent', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178', cursor: 'pointer' }}>
                                 ✕ Rechazar
                               </button>
                             </>
@@ -359,13 +359,13 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                               <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: u.is_active ? 'rgba(34,197,94,0.15)' : 'rgba(255,255,255,0.05)', color: u.is_active ? '#22C55E' : '#666' }}>
                                 {u.is_active ? 'Activo' : 'Inactivo'}
                               </span>
-                              <button onClick={() => setEditUser({ ...u, password: '' })} className="text-xs px-2 py-1 rounded" style={{ background: 'transparent', border: '1px solid rgba(230,57,70,0.3)', color: '#E63946', cursor: 'pointer' }}>
+                              <button onClick={() => setEditUser({ ...u, password: '' })} className="text-xs px-2 py-1 rounded" style={{ background: 'transparent', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178', cursor: 'pointer' }}>
                                 Editar
                               </button>
                               <button onClick={() => toggleUser(u.id, u.is_active)} className="text-xs px-2 py-1 rounded" style={{ background: 'transparent', border: '1px solid #333', color: '#999', cursor: 'pointer' }}>
                                 {u.is_active ? 'Desactivar' : 'Activar'}
                               </button>
-                              <button onClick={() => deleteUser(u.id)} className="text-xs px-2 py-1 rounded" style={{ background: 'transparent', border: '1px solid rgba(230,57,70,0.3)', color: '#E63946', cursor: 'pointer' }}>
+                              <button onClick={() => deleteUser(u.id)} className="text-xs px-2 py-1 rounded" style={{ background: 'transparent', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178', cursor: 'pointer' }}>
                                 ✕
                               </button>
                             </>
@@ -396,7 +396,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                           {c.thumbnail_url ? (
                             <img src={c.thumbnail_url} alt={c.title} style={{ width: '56px', height: '56px', objectFit: 'cover', borderRadius: '8px', flexShrink: 0 }} />
                           ) : (
-                            <div className="flex items-center justify-center flex-shrink-0" style={{ width: '56px', height: '56px', borderRadius: '8px', background: 'rgba(230,57,70,0.1)', border: '1px solid rgba(230,57,70,0.3)' }}>
+                            <div className="flex items-center justify-center flex-shrink-0" style={{ width: '56px', height: '56px', borderRadius: '8px', background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.3)' }}>
                               <span style={{ fontSize: '20px' }}>📚</span>
                             </div>
                           )}
@@ -404,7 +404,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                             <p className="text-sm font-semibold truncate" style={{ color: 'white' }}>{c.title}</p>
                             <div className="flex items-center gap-3 mt-1">
                               <span className="text-xs" style={{ color: '#888' }}>{c.module_count} módulos</span>
-                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: c.content_type === 'pdf' ? 'rgba(59,130,246,0.15)' : 'rgba(230,57,70,0.15)', color: c.content_type === 'pdf' ? '#3B82F6' : '#E63946', fontSize: '10px' }}>
+                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: c.content_type === 'pdf' ? 'rgba(59,130,246,0.15)' : 'rgba(153,161,120,0.15)', color: c.content_type === 'pdf' ? '#3B82F6' : '#99A178', fontSize: '10px' }}>
                                 {c.content_type === 'pdf' ? 'PDF' : 'Video'}
                               </span>
                               <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: c.is_published ? 'rgba(34,197,94,0.15)' : 'rgba(255,255,255,0.05)', color: c.is_published ? '#22C55E' : '#666', fontSize: '10px' }}>
@@ -415,7 +415,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                           </div>
                         </div>
                         <div className="flex items-center gap-2 flex-shrink-0">
-                          <button onClick={() => setEditCourse(c)} className="text-xs px-3 py-1.5 rounded-lg" style={{ background: 'rgba(230,57,70,0.1)', border: '1px solid rgba(230,57,70,0.3)', color: '#E63946', cursor: 'pointer' }}>
+                          <button onClick={() => setEditCourse(c)} className="text-xs px-3 py-1.5 rounded-lg" style={{ background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178', cursor: 'pointer' }}>
                             Editar
                           </button>
                           <button onClick={() => deleteCourse(c.id)} className="text-xs px-2 py-1.5 rounded-lg" style={{ background: 'transparent', border: '1px solid #333', color: '#666', cursor: 'pointer' }}>
@@ -434,7 +434,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                           <div className="mt-3 pt-3 space-y-1.5" style={{ borderTop: '1px solid #2A2A2A' }}>
                             {courseModules.map(m => (
                               <div key={m.id} className="flex items-center gap-2 px-3 py-2 rounded-lg" style={{ background: '#111' }}>
-                                <span className="text-xs font-bold px-1.5 py-0.5 rounded" style={{ background: '#E63946', color: 'white', fontSize: '9px' }}>#{m.position}</span>
+                                <span className="text-xs font-bold px-1.5 py-0.5 rounded" style={{ background: '#99A178', color: 'white', fontSize: '9px' }}>#{m.position}</span>
                                 <span className="text-xs truncate" style={{ color: '#CCC' }}>{m.title}</span>
                                 <span className="text-xs ml-auto" style={{ color: '#555' }}>{m.lesson_count} clases</span>
                               </div>
@@ -486,7 +486,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                             {m.thumbnail_url ? (
                               <img src={m.thumbnail_url} alt={m.title} style={{ width: '48px', height: '64px', objectFit: 'cover', borderRadius: '6px', flexShrink: 0 }} />
                             ) : (
-                              <span className="text-xs font-bold px-2 py-0.5 rounded flex-shrink-0" style={{ background: '#E63946', color: 'white' }}>#{m.position}</span>
+                              <span className="text-xs font-bold px-2 py-0.5 rounded flex-shrink-0" style={{ background: '#99A178', color: 'white' }}>#{m.position}</span>
                             )}
                             <div className="min-w-0">
                               <p className="text-sm font-medium truncate" style={{ color: 'white' }}>{m.title}</p>
@@ -501,7 +501,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                             <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: m.is_published ? 'rgba(34,197,94,0.15)' : 'rgba(255,255,255,0.05)', color: m.is_published ? '#22C55E' : '#666' }}>
                               {m.is_published ? 'Publicado' : 'Oculto'}
                             </span>
-                            <button onClick={() => setEditModule(m)} className="text-xs px-3 py-1.5 rounded-lg" style={{ background: 'rgba(230,57,70,0.1)', border: '1px solid rgba(230,57,70,0.3)', color: '#E63946', cursor: 'pointer' }}>
+                            <button onClick={() => setEditModule(m)} className="text-xs px-3 py-1.5 rounded-lg" style={{ background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178', cursor: 'pointer' }}>
                               Editar
                             </button>
                             <button onClick={() => deleteModule(m.id)} className="text-xs px-2 py-1.5 rounded-lg" style={{ background: 'transparent', border: '1px solid #333', color: '#666', cursor: 'pointer' }}>
@@ -560,7 +560,7 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                           ) : (
                             <span
                               className="text-xs font-semibold inline-flex items-center gap-1.5 group"
-                              style={{ color: '#E63946', cursor: 'pointer' }}
+                              style={{ color: '#99A178', cursor: 'pointer' }}
                               onClick={() => startEditModuleTitle(lesson.module_id, lesson.module_title)}
                               title="Haz clic para editar el nombre del módulo"
                             >
@@ -575,11 +575,11 @@ export default function AdminClient({ userName, userEmail }: { userName: string;
                           {lesson.video_embed ? (
                             <p className="text-xs mt-1" style={{ color: '#22C55E' }}>✓ Video configurado</p>
                           ) : (
-                            <p className="text-xs mt-1" style={{ color: '#E63946' }}>⚠ Sin video — haz clic en Editar</p>
+                            <p className="text-xs mt-1" style={{ color: '#99A178' }}>⚠ Sin video — haz clic en Editar</p>
                           )}
                         </div>
                         <div className="flex items-center gap-2 flex-shrink-0">
-                          <button onClick={() => setEditLesson(lesson)} className="text-xs px-3 py-1.5 rounded-lg" style={{ background: 'rgba(230,57,70,0.1)', border: '1px solid rgba(230,57,70,0.3)', color: '#E63946', cursor: 'pointer' }}>
+                          <button onClick={() => setEditLesson(lesson)} className="text-xs px-3 py-1.5 rounded-lg" style={{ background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.3)', color: '#99A178', cursor: 'pointer' }}>
                             Editar
                           </button>
                           <button onClick={() => deleteLesson(lesson.id)} className="text-xs px-2 py-1.5 rounded-lg" style={{ background: 'transparent', border: '1px solid #333', color: '#666', cursor: 'pointer' }}>

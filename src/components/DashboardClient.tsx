@@ -85,7 +85,7 @@ export default function DashboardClient({
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+    <div style={{ minHeight: '100vh', background: '#1C2630' }}>
       {/* Header - Sticky */}
       <header
         className="sticky top-0 z-50"
@@ -147,7 +147,7 @@ export default function DashboardClient({
                     <Link
                       href="/admin"
                       className="flex items-center gap-2 px-4 py-3 text-sm transition-colors"
-                      style={{ color: '#E63946', textDecoration: 'none' }}
+                      style={{ color: '#99A178', textDecoration: 'none' }}
                       onClick={() => setMenuOpen(false)}
                       onMouseEnter={e => (e.currentTarget.style.background = '#242424')}
                       onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
@@ -191,7 +191,7 @@ export default function DashboardClient({
               maxHeight: '300px',
               objectFit: 'contain',
               objectPosition: 'center',
-              background: '#0A0A0A',
+              background: '#1C2630',
             }}
           />
         </div>
@@ -345,8 +345,8 @@ function ModuleCard({ module }: { module: Module }) {
       onMouseEnter={e => {
         if (!isLocked) {
           e.currentTarget.style.transform = 'scale(1.03)';
-          e.currentTarget.style.boxShadow = '0 8px 30px rgba(230,57,70,0.15)';
-          e.currentTarget.style.borderColor = 'rgba(230,57,70,0.4)';
+          e.currentTarget.style.boxShadow = '0 8px 30px rgba(153,161,120,0.15)';
+          e.currentTarget.style.borderColor = 'rgba(153,161,120,0.4)';
         }
       }}
       onMouseLeave={e => {
@@ -362,7 +362,7 @@ function ModuleCard({ module }: { module: Module }) {
         className="relative"
         style={{
           aspectRatio: '3/4',
-          background: 'linear-gradient(135deg, #1a0505 0%, #0A0A0A 100%)',
+          background: 'linear-gradient(135deg, #2A3139 0%, #1C2630 100%)',
           overflow: 'hidden',
         }}
       >
@@ -382,7 +382,7 @@ function ModuleCard({ module }: { module: Module }) {
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className="w-16 h-16 rounded-full flex items-center justify-center"
-              style={{ background: isLocked ? 'rgba(255,255,255,0.05)' : 'rgba(230,57,70,0.1)', border: isLocked ? '2px solid rgba(255,255,255,0.15)' : '2px solid rgba(230,57,70,0.3)' }}
+              style={{ background: isLocked ? 'rgba(255,255,255,0.05)' : 'rgba(153,161,120,0.1)', border: isLocked ? '2px solid rgba(255,255,255,0.15)' : '2px solid rgba(153,161,120,0.3)' }}
             >
               {isLocked ? (
                 <svg width="28" height="28" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -390,7 +390,7 @@ function ModuleCard({ module }: { module: Module }) {
                   <path d="M7 11V7a5 5 0 0110 0v4"/>
                 </svg>
               ) : (
-                <svg width="28" height="28" fill="none" stroke="#E63946" strokeWidth="1.5" viewBox="0 0 24 24">
+                <svg width="28" height="28" fill="none" stroke="#99A178" strokeWidth="1.5" viewBox="0 0 24 24">
                   <polygon points="5 3 19 12 5 21 5 3"/>
                 </svg>
               )}
@@ -467,7 +467,7 @@ function ModuleCard({ module }: { module: Module }) {
         <div style={{
           height: '100%',
           width: isLocked ? '0%' : `${progress}%`,
-          background: progress === 100 ? '#22C55E' : '#E63946',
+          background: progress === 100 ? '#22C55E' : '#99A178',
           transition: 'width 0.5s ease',
         }} />
       </div>

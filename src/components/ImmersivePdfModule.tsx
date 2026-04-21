@@ -14,7 +14,7 @@ const PDF_SECTIONS = [
     title: 'Abriendo la Puerta Trasera',
     subtitle: 'Descubre los secretos que ella nunca te contó',
     icon: '🔥',
-    color: '#E63946',
+    color: '#99A178',
     pages: [
       `${CDN}/page_01_914937e2.jpg`, `${CDN}/page_02_5ad6bf36.jpg`,
       `${CDN}/page_03_e38da84b.jpg`, `${CDN}/page_04_4b54b783.jpg`,
@@ -104,8 +104,8 @@ function AnimatedPage({ url, index }: { url: string; index: number }) {
             <div style={{ textAlign: 'center' }}>
               <div style={{
                 width: '28px', height: '28px',
-                border: '3px solid rgba(230,57,70,0.2)',
-                borderTopColor: '#E63946',
+                border: '3px solid rgba(153,161,120,0.2)',
+                borderTopColor: '#99A178',
                 borderRadius: '50%',
                 animation: 'spin 0.8s linear infinite',
                 margin: '0 auto 8px',
@@ -236,7 +236,7 @@ function ScrollProgress() {
     }}>
       <div style={{
         height: '100%',
-        background: 'linear-gradient(90deg, #E63946, #ff6b6b, #E63946)',
+        background: 'linear-gradient(90deg, #99A178, #ff6b6b, #99A178)',
         width: `${progress}%`,
         transition: 'width 0.15s ease-out',
       }} />
@@ -260,9 +260,9 @@ function BackToTop() {
       style={{
         position: 'fixed', bottom: '24px', right: '24px', zIndex: 50,
         width: '48px', height: '48px', borderRadius: '50%',
-        background: '#E63946', color: 'white', border: 'none',
+        background: '#99A178', color: 'white', border: 'none',
         cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: '0 8px 30px rgba(230,57,70,0.4)',
+        boxShadow: '0 8px 30px rgba(153,161,120,0.4)',
         transition: 'all 0.3s ease',
         animation: 'fadeInUp 0.3s ease-out',
       }}
@@ -297,8 +297,8 @@ function SectionNav({ activeIndex }: { activeIndex: number }) {
             width: activeIndex === i ? '12px' : '10px',
             height: activeIndex === i ? '12px' : '10px',
             borderRadius: '50%',
-            border: `2px solid ${activeIndex === i ? '#E63946' : '#444'}`,
-            background: activeIndex === i ? '#E63946' : 'transparent',
+            border: `2px solid ${activeIndex === i ? '#99A178' : '#444'}`,
+            background: activeIndex === i ? '#99A178' : 'transparent',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             padding: 0,
@@ -355,7 +355,7 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+    <div style={{ minHeight: '100vh', background: '#1C2630' }}>
       <ScrollProgress />
       <BackToTop />
       <SectionNav activeIndex={activeSection} />
@@ -365,7 +365,7 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(230,57,70,0.1); } 50% { box-shadow: 0 0 40px rgba(230,57,70,0.2); } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(153,161,120,0.1); } 50% { box-shadow: 0 0 40px rgba(153,161,120,0.2); } }
         @media (max-width: 768px) { .hidden-mobile { display: none !important; } }
       `}</style>
 
@@ -406,7 +406,7 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
                       <p className="text-xs" style={{ color: '#666' }}>{user.email}</p>
                     </div>
                     {user.isAdmin && (
-                      <Link href="/admin" className="block px-4 py-3 text-sm" style={{ color: '#E63946', textDecoration: 'none' }}>Panel de Admin</Link>
+                      <Link href="/admin" className="block px-4 py-3 text-sm" style={{ color: '#99A178', textDecoration: 'none' }}>Panel de Admin</Link>
                     )}
                     <button onClick={handleLogout} className="w-full text-left px-4 py-3 text-sm" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#999' }}>Cerrar sesión</button>
                   </div>
@@ -423,7 +423,7 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
         <div style={{
           position: 'absolute', top: '-100px', left: '50%', transform: 'translateX(-50%)',
           width: '600px', height: '400px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(230,57,70,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(153,161,120,0.08) 0%, transparent 70%)',
           filter: 'blur(60px)', pointerEvents: 'none',
         }} />
 
@@ -434,12 +434,12 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(230,57,70,0.1)', border: '1px solid rgba(230,57,70,0.25)',
+            background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.25)',
             borderRadius: '100px', padding: '6px 16px', marginBottom: '24px',
           }}>
             <span style={{ fontSize: '14px' }}>🚀</span>
             <span style={{
-              color: '#E63946', fontSize: '11px', fontWeight: 700,
+              color: '#99A178', fontSize: '11px', fontWeight: 700,
               letterSpacing: '0.12em', textTransform: 'uppercase',
               fontFamily: 'Inter, sans-serif',
             }}>
@@ -455,7 +455,7 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
             fontFamily: "'Playfair Display', serif",
           }}>
             Acelerador de{' '}
-            <span style={{ color: '#E63946' }}>Resultados</span>
+            <span style={{ color: '#99A178' }}>Resultados</span>
           </h1>
 
           {/* Description */}
@@ -486,7 +486,7 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
             }}>
               <div style={{
                 width: '4px', height: '8px', borderRadius: '2px',
-                background: '#E63946', animation: 'fadeInUp 1.5s ease-in-out infinite',
+                background: '#99A178', animation: 'fadeInUp 1.5s ease-in-out infinite',
               }} />
             </div>
           </div>
@@ -520,17 +520,17 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
       }}>
         <div style={{
           width: '1px', height: '60px', margin: '0 auto 32px',
-          background: 'linear-gradient(to bottom, transparent, rgba(230,57,70,0.3), transparent)',
+          background: 'linear-gradient(to bottom, transparent, rgba(153,161,120,0.3), transparent)',
         }} />
 
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: '8px',
-          background: 'rgba(230,57,70,0.1)', border: '1px solid rgba(230,57,70,0.25)',
+          background: 'rgba(153,161,120,0.1)', border: '1px solid rgba(153,161,120,0.25)',
           borderRadius: '100px', padding: '8px 20px', marginBottom: '20px',
         }}>
           <span style={{ fontSize: '16px' }}>🔥</span>
           <span style={{
-            color: '#E63946', fontSize: '13px', fontWeight: 600,
+            color: '#99A178', fontSize: '13px', fontWeight: 600,
             fontFamily: 'Inter, sans-serif',
           }}>
             Contenido completado
@@ -557,14 +557,14 @@ export default function ImmersivePdfModule({ user }: { user: User }) {
           href="/dashboard"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: '#E63946', color: 'white', padding: '14px 32px',
+            background: '#99A178', color: 'white', padding: '14px 32px',
             borderRadius: '12px', fontWeight: 600, fontSize: '14px',
             textDecoration: 'none', fontFamily: 'Inter, sans-serif',
-            boxShadow: '0 8px 30px rgba(230,57,70,0.25)',
+            boxShadow: '0 8px 30px rgba(153,161,120,0.25)',
             transition: 'all 0.3s ease',
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(230,57,70,0.4)'; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(230,57,70,0.25)'; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(153,161,120,0.4)'; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(153,161,120,0.25)'; }}
         >
           <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M19 12H5M12 19l-7-7 7-7"/>

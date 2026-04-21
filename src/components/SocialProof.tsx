@@ -190,7 +190,7 @@ export function SocialProofCompact() {
           style={{ background: '#22C55E', boxShadow: '0 0 8px rgba(34,197,94,0.5)', animation: 'pulse 2s infinite' }}
         />
         <p className="text-xs" style={{ color: '#888' }}>
-          <span style={{ color: '#E63946', fontWeight: 600 }}>+<AnimatedCounter target={memberCount} /></span> hombres ya transformaron su vida
+          <span style={{ color: '#99A178', fontWeight: 600 }}>+<AnimatedCounter target={memberCount} /></span> hombres ya transformaron su vida
         </p>
       </div>
 
@@ -282,15 +282,15 @@ export function SocialProofFull() {
             <div
               className="flex items-center gap-2 px-4 py-2 rounded-full"
               style={{
-                background: 'linear-gradient(135deg, rgba(230,57,70,0.1) 0%, rgba(230,57,70,0.05) 100%)',
-                border: '1px solid rgba(230,57,70,0.15)',
+                background: 'linear-gradient(135deg, rgba(153,161,120,0.1) 0%, rgba(153,161,120,0.05) 100%)',
+                border: '1px solid rgba(153,161,120,0.15)',
               }}
             >
               <div
                 className="w-2 h-2 rounded-full"
                 style={{ background: '#22C55E', boxShadow: '0 0 8px rgba(34,197,94,0.5)', animation: 'pulse 2s infinite' }}
               />
-              <span className="text-sm font-semibold" style={{ color: '#E63946' }}>
+              <span className="text-sm font-semibold" style={{ color: '#99A178' }}>
                 +<AnimatedCounter target={memberCount} />
               </span>
               <span className="text-sm" style={{ color: '#999' }}>miembros activos</span>
@@ -341,8 +341,8 @@ export function SocialProofFull() {
           )}
 
           {/* Fade nas bordas */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-[5]" style={{ background: 'linear-gradient(to right, #0A0A0A, transparent)' }} />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-[5]" style={{ background: 'linear-gradient(to left, #0A0A0A, transparent)' }} />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-[5]" style={{ background: 'linear-gradient(to right, #1C2630, transparent)' }} />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-[5]" style={{ background: 'linear-gradient(to left, #1C2630, transparent)' }} />
 
           {/* Cards */}
           <div
@@ -361,7 +361,7 @@ export function SocialProofFull() {
                   border: '1px solid rgba(255,255,255,0.06)',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'rgba(230,57,70,0.2)';
+                  e.currentTarget.style.borderColor = 'rgba(153,161,120,0.2)';
                   e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)';
                 }}
                 onMouseLeave={e => {
@@ -370,7 +370,7 @@ export function SocialProofFull() {
                 }}
               >
                 {/* Aspas decorativas */}
-                <div className="mb-3" style={{ color: 'rgba(230,57,70,0.3)', fontSize: '28px', lineHeight: 1, fontFamily: 'Georgia, serif' }}>
+                <div className="mb-3" style={{ color: 'rgba(153,161,120,0.3)', fontSize: '28px', lineHeight: 1, fontFamily: 'Georgia, serif' }}>
                   &ldquo;
                 </div>
 
@@ -383,8 +383,8 @@ export function SocialProofFull() {
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center"
                       style={{
-                        background: 'linear-gradient(135deg, rgba(230,57,70,0.12) 0%, rgba(230,57,70,0.05) 100%)',
-                        border: '1px solid rgba(230,57,70,0.15)',
+                        background: 'linear-gradient(135deg, rgba(153,161,120,0.12) 0%, rgba(153,161,120,0.05) 100%)',
+                        border: '1px solid rgba(153,161,120,0.15)',
                         fontSize: '22px',
                         lineHeight: 1,
                       }}

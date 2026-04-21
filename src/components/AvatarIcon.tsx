@@ -10,7 +10,7 @@ interface AvatarIconProps {
 
 export default function AvatarIcon({
   size = 32,
-  bgColor = '#E63946',
+  bgColor = '#99A178',
   iconColor = 'white',
   className = '',
   style = {},
