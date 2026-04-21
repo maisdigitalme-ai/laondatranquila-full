@@ -76,7 +76,7 @@ export default function LoginClient() {
         <div className="hidden md:flex md:w-1/2 items-center justify-center p-8" style={{ background: 'linear-gradient(135deg, #1C2630 0%, #2A3139 100%)' }}>
           <div className="relative w-full max-w-md h-96">
             <img
-              src="/manus-storage/IMG_16548_f8f1c3e0.png"
+              src="/manus-storage/IMG_16548_1e8e388b.png"
               alt="La Onda Tranquila Logo"
               className="w-full h-full object-contain"
             />
