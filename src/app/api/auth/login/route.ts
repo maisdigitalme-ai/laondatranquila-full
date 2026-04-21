@@ -33,11 +33,17 @@ export async function POST(request: Request) {
     }
 
     // Buscar usuário existente (incluindo campo status)
-    let users = await sql`
-      SELECT id, name, email, password, is_admin, is_active, status
-      FROM users
-      WHERE email = ${normalizedEmail}
-    `;
+    let users = [];
+    try {
+      users = await sql`
+        SELECT id, name, email, password, is_admin, is_active, status
+        FROM users
+        WHERE email = ${normalizedEmail}
+      `;
+    } catch (selectError) {
+      console.error('Erro ao buscar usuário:', selectError);
+      throw selectError;
+    }
 
     const DEFAULT_PASSWORD = '123456';
 
@@ -46,21 +52,35 @@ export async function POST(request: Request) {
       const hashedPassword = await bcrypt.hash(DEFAULT_PASSWORD, 10);
       const nameFromEmail = normalizedEmail.split('@')[0];
 
-      await sql`
-        INSERT INTO users (name, email, password, is_admin, is_active, status)
-        VALUES (${nameFromEmail}, ${normalizedEmail}, ${hashedPassword}, false, true, 'approved')
-        ON CONFLICT (email) DO NOTHING
-      `;
+      try {
+        await sql`
+          INSERT INTO users (name, email, password, is_admin, is_active, status)
+          VALUES (${nameFromEmail}, ${normalizedEmail}, ${hashedPassword}, false, true, 'approved')
+          ON CONFLICT (email) DO NOTHING
+        `;
+      } catch (insertError) {
+        console.error('Erro ao inserir usuário:', insertError);
+        throw insertError;
+      }
 
       // Buscar o usuário recém-criado
-      users = await sql`
-        SELECT id, name, email, password, is_admin, is_active, status
-        FROM users
-        WHERE email = ${normalizedEmail}
-      `;
+      try {
+        users = await sql`
+          SELECT id, name, email, password, is_admin, is_active, status
+          FROM users
+          WHERE email = ${normalizedEmail}
+        `;
+      } catch (selectError2) {
+        console.error('Erro ao buscar usuário recém-criado:', selectError2);
+        throw selectError2;
+      }
     }
 
     const user = users[0];
+    if (!user) {
+      console.error('Usuário não encontrado após criação/busca');
+      return NextResponse.json({ error: 'Erro ao processar usuário' }, { status: 500 });
+    }
 
     // Atualizar usuário se estiver pendente — aprova automaticamente
     if (user.status === 'pending' || !user.is_active) {
